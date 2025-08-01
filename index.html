@@ -2,75 +2,79 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin - Manage Stock</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <script src="js/admin.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Order Form - 30th Anniversary Merchandise Sale</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-    <div class="container">
-        <h1>Stock สินค้าสำหรับ Admin</h1>
-        <form id="stockForm">
-            <label for="productName">ประเภทสินค้า:</label>
-            <select id="productName" name="productName" required>
-                <option value="">-- เลือก --</option>
-                <option value="เสื้อ">เสื้อ</option>
-                <option value="กระเป๋า">กระเป๋า</option>
-                <option value="แก้ว">แก้ว</option>
-                <option value="หมวก">หมวก</option>
-                <option value="ร่ม">ร่ม</option>
-                <option value="เข็มกลัด">เข็มกลัด</option>
-                <option value="สมุด">สมุด</option>
-                <option value="ปากกา">ปากกา</option>
-            </select>
+    <div class="form-container">
+        <h1>ของที่ระลึก 30ปี สาขาวิชาวิทยาการคอมพิวเตอร์</h1>
+        <form id="orderForm">
+            <label for="name">ชื่อ-นามสกุล:</label>
+            <input type="text" id="name" name="name" required>
 
+            <label for="address">ที่อยู่:</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="phone">เบอร์โทรศัพ:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="product">เลือกสินค้าที่คุณต้องการ:</label>
+            <select id="product" name="product" required>
+                <option value="">--เลือกสินค้าที่คุณต้องการ--</option>
+                <option value="shirt">เสื้อ</option>
+                <option value="bag">กระเป๋า</option>
+                <option value="mug">เเก้ว</option>
+                <option value="hat">หมวก</option>
+                <option value="umbrella">ร่ม</option>
+                <option value="pin">เข็มกลัด</option>
+                <option value="notebook">สมุด</option>
+                <option value="pen">ปากกา</option>
+            </select>
             <label for="color">สีของสินค้า:</label>
             <select id="color" name="color" required>
-                <option value="">-- เลือก --</option>
-                <option value="แดง">แดง</option>
-                <option value="น้ำเงิน">น้ำเงิน</option>
-                <option value="เขียว">เขียว</option>
-                <option value="ดำ">ดำ</option>
-                <option value="ขาว">ขาว</option>
-            </select>
-
-            <label for="size">ขนาดของสินค้า (Size):</label>
-            <select id="size" name="size" required>
-                <option value="">-- เลือก --</option>
-                <option value="S">S</option>
-                <option value="M">M</option>
-                <option value="L">L</option>
+                <option value="red">แดง</option>
+                <option value="blue">น้ำเงิน</option>
+                <option value="green">เขียว</option>
+                <option value="black">ดำ</option>
+                <option value="white">ขาว</option>
+            </select>   
+            <label for="size">ขนาดของสินค้า(Size):</label>
+            <select id="size" name="sizeb" required>
+                <option value="s">S</option>
+                <option value="m">M</option>
+                <option value="l">L</option>
                 <option value="XL">XL</option>
-                <option value="XXL">XXL</option>
+                <option value="xxl">XXL</option>
+            </select> 
+            <label for="size">รายละเอียดสินค้าเพิ่มเติม:</label>
+            <textarea name="product-detail" id="product-detail" cols="30" rows="10" placeholder="รายละเอียดสินค้าเพิ่มเติม เช่น ขนาด สี" required
+                maxlength="500">
+            </textarea>
+            <label for="paymentSlip">อัพโหลดสลิปการชำระเงิน:</label>
+            <input type="file" id="paymentSlip" name="paymentSlip" accept="image/*" required>
+
+            <label for="purchaseDate">วันที่ซื้อ:</label>
+            <input type="date" id="purchaseDate" name="purchaseDate" required>
+
+            <label for="deliveryMethod">วิธีการจัดส่ง:</label>
+            <select id="deliveryMethod" name="deliveryMethod" required>
+                <option value="shipping">การส่งสินค้า</option>
+                <option value="pickup">มารับเอง</option>
             </select>
 
-            <label for="image">รูปสินค้า:</label>
-            <input type="file" id="image" name="image" accept="image/*" required />
-
-            <label for="price">ราคาสินค้า:</label>
-            <input type="number" id="price" name="price" required />
+            <label for="paymentMethod">วิธีการชำระเงิน:</label>
+            <select id="paymentMethod" name="paymentMethod" required>
+                <option value="creditCard">Credit Card</option>
+                <option value="paypal">PayPal</option>
+                <option value="bankTransfer">Bank Transfer</option>
+            </select>
 
             <button type="submit">ยืนยัน</button>
         </form>
     </div>
-    <div class="container">
-        <h1>รายการสินค้าในสต็อก</h1>
-        <table class="" id="stockTable" border="2px" cellpadding="10" cellspacing="0" style="width: 100%; border-collapse: collapse;" box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>ประเภทสินค้า</th>
-                    <th>สี</th>
-                    <th>ขนาด</th>
-                    <th>รูปภาพ</th>
-                    <th>ราคา</th>
-                </tr>
-            </thead>
-            <tbody>
-                
-            </tbody>
-        </table>
-    </div>
 </body>
+
+</html>
